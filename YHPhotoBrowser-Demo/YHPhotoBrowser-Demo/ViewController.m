@@ -61,7 +61,10 @@
         //创建 YHPhoto 对象
         YHPhoto *photo = [[YHPhoto alloc] init];
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://icgdb.oss-cn-shanghai.aliyuncs.com/testByCui/yh%02zd.jpg", i+1]];
+        
+        //大图的url
         photo.url = url;
+        //起始的imageView数组
         photo.srcImageView = self.imageViews[i];
         [images addObject:photo];
     }
@@ -70,6 +73,7 @@
     YHPhotoBrowser *browser = [[YHPhotoBrowser alloc] init];
     
     browser.photos = images;
+    //当前点击的imageView的索引,即第几个imageView
     browser.currentIndex = indexPath.item;
     
     //弹出browser

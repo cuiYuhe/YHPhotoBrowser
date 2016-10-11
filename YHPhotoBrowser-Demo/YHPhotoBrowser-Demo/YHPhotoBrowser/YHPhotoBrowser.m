@@ -10,6 +10,7 @@
 #import "YHBrowserAnimateDelegate.h"
 #import <UIImageView+WebCache.h>
 #import "YHProgressCircleView.h"
+#import <SDWebImageManager.h>
 
 @interface YHPhotoBrowser ()<UICollectionViewDataSource, UICollectionViewDelegate, YHPhotoBrowserCellDelegate, YHBrowserAnimateDelegateProtocol>
 /** collectionView */
@@ -18,13 +19,11 @@
 @property (nonatomic, strong) YHBrowserAnimateDelegate *browserAnimateDelegate;
 /** 当前页数的标记 */
 @property (nonatomic, weak) UILabel *pageLabel;
-/** DACircularProgressView */
+/** 下载图片进度条 */
 @property (nonatomic, weak) YHProgressCircleView *progressView;
 
 /** 初始时显示的配图的索引 */
 @property (nonatomic, strong) NSIndexPath *startIndexPath;
-/** 结束时显示的配图的索引 */
-@property (nonatomic, strong) NSIndexPath *endIndexPath;
 
 /** 结束的imageView */
 @property (nonatomic, weak) UIImageView *endImageView;
@@ -55,10 +54,10 @@
 //        [self.view addSubview:progressView];
         
         CGFloat WH = 60;
-        self.progressView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
         CGRect rect = self.progressView.frame;
         rect.size = CGSizeMake(WH, WH);
         self.progressView.frame = rect;
+        self.progressView.center = self.view.center;
         
         _progressView = progressView;
     }
@@ -115,6 +114,15 @@
     [self.collectionView scrollToItemAtIndexPath:self.startIndexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.currentIndex inSection:0];
+    YHPhotoBrowserCell *cell = (YHPhotoBrowserCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    //stop downloading
+    [cell.iconImgView sd_cancelCurrentImageLoad];
+    [self.progressView removeFromSuperview];
+}
+
 #pragma mark ------------------------------------------
 #pragma mark property set method
 - (void)setPhotos:(NSArray<YHPhoto *> *)photos{
@@ -141,13 +149,14 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
+    //取消之前的下载
+    [[SDWebImageManager sharedManager] cancelAll];
+    
     YHPhotoBrowserCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[YHPhotoBrowserCell identifier] forIndexPath:indexPath];
     cell.delegate = self;
     YHPhoto *photo = self.photos[indexPath.item];
-//    cell.iconImgView.image = photo.image;
     
     if (!photo.url) { //没有设置url
-        
         if (photo.image) {//设置了image,
             cell.iconImgView.image = photo.image;
         }else{//没有设置image,
