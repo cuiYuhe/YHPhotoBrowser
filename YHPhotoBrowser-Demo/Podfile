@@ -1,0 +1,6 @@
+
+target "YHPhotoBrowser-Demo" do
+
+pod 'SDWebImage', '~> 3.7.5'
+
+end
