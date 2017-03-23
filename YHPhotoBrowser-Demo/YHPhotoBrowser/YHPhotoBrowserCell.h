@@ -27,6 +27,10 @@
 @property (nonatomic, weak) UIImageView *iconImgView;
 
 
+
+///设置iconImageView的位置
+- (void)setIconImageViewPosition;
+
 + (NSString *)identifier;
 
 @end

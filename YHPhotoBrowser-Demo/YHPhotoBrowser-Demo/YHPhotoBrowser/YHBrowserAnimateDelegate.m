@@ -8,6 +8,7 @@
 
 #import "YHBrowserAnimateDelegate.h"
 
+
 static CGFloat YHAnimationDuration = 0.5f;
 
 @interface YHBrowserAnimateDelegate()
@@ -90,9 +91,11 @@ static CGFloat YHAnimationDuration = 0.5f;
     
     //1.得到当前点击的imageView
     UIImageView *imgView = [self.delegate browserAnimateFirstShowImageView];
+    imgView.layer.masksToBounds = YES;
     
     //2.设置frame
     imgView.frame = [self.delegate browserAnimationFromRect];
+    
     
     //3.将新建的UIImageView添加到容器视图上
     [[transitionContext containerView] addSubview:imgView];
@@ -123,8 +126,9 @@ static CGFloat YHAnimationDuration = 0.5f;
     
     //1.得到当前点击的imageView
     UIImageView *imageView = [self.delegate browserAnimateEndShowImageView];
+    imageView.layer.masksToBounds = YES;
     
-    //2.设置frame,此时初始值为全屏的frame
+    //2.设置frame,此时初始值为全屏时的frame
     imageView.frame = [self.delegate browserAnimationToRect];
     
     //3.将新建的UIImageView添加到容器视图上

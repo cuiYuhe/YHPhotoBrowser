@@ -8,9 +8,12 @@
 #import "YHPhotoBrowser.h"
 #import "YHPhotoBrowserCell.h"
 #import "YHBrowserAnimateDelegate.h"
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 #import "YHProgressCircleView.h"
-#import <SDWebImageManager.h>
+#import "SDWebImageManager.h"
+
+//与 YHPhotoBrowserCell 中的margin一致
+static CGFloat const YHMarginX = 0;
 
 @interface YHPhotoBrowser ()<UICollectionViewDataSource, UICollectionViewDelegate, YHPhotoBrowserCellDelegate, YHBrowserAnimateDelegateProtocol>
 /** collectionView */
@@ -83,7 +86,12 @@
     
     //设置collectionView
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+    
+    CGFloat width = self.view.bounds.size.width;
+    CGFloat height = self.view.bounds.size.height;
+    CGRect rect = CGRectMake(-YHMarginX, 0, width + 2 * YHMarginX, height);
+    
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:rect collectionViewLayout:layout];
     [self.view addSubview:collectionView];
     self.collectionView = collectionView;
     collectionView.dataSource = self;
@@ -119,7 +127,11 @@
     NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.currentIndex inSection:0];
     YHPhotoBrowserCell *cell = (YHPhotoBrowserCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     //stop downloading
-    [cell.iconImgView sd_cancelCurrentImageLoad];
+    [cell.iconImgView sd_cancelCurrentAnimationImagesLoad];
+    
+    
+    
+//    [cell.iconImgView sd_cancelCurrentImageLoad];
     [self.progressView removeFromSuperview];
 }
 
@@ -166,13 +178,16 @@
     }
     
     //设置了url,没有image
-    [cell.iconImgView sd_setImageWithPreviousCachedImageWithURL:photo.url placeholderImage:photo.srcImageView.image options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    [cell.iconImgView sd_setImageWithPreviousCachedImageWithURL:photo.url placeholderImage:photo.srcImageView.image options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         
-        //进度条
-        self.progressView.hidden = NO;
-        CGFloat progress = 1.0 * receivedSize / expectedSize;
-        self.progressView.progressLabel.text = [NSString stringWithFormat:@"%.0f", progress];
-        self.progressView.progress = progress;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //进度条
+            self.progressView.hidden = NO;
+            CGFloat progress = 1.0 * receivedSize / expectedSize;
+            self.progressView.progressLabel.text = [NSString stringWithFormat:@"%.0f", progress];
+            self.progressView.progress = progress;
+        });
+        
         
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
@@ -202,7 +217,12 @@
     self.pageLabel.text = [NSString stringWithFormat:@"%zd/%zd", index+1, self.photos.count];
 }
 
-
+// 当前cell滑出屏幕外时，将图片比例重置为原始比例
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    YHPhotoBrowserCell *pbCell = (YHPhotoBrowserCell *)cell;
+    [pbCell setIconImageViewPosition];
+}
 
 #pragma mark ------------------------------------------
 #pragma mark YHPhotoBrowserCellDelegate
@@ -265,7 +285,7 @@
     
     //创建一个新的imageView
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.contentMode = self.photos[self.currentIndex].srcImageView.contentMode;
     return imageView;
 }
 

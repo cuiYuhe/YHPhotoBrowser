@@ -7,6 +7,9 @@
 
 #import "YHPhotoBrowserCell.h"
 
+//与 YHPhotoBrowser 中的margin一致
+static CGFloat const YHIconMarginX = 0;
+
 @interface YHPhotoBrowserCell()<UIScrollViewDelegate>
 /** 最下面的scrollView */
 @property (nonatomic, weak) UIScrollView *scrollView;
@@ -22,6 +25,7 @@
 }
 
 - (void)awakeFromNib{
+    [super awakeFromNib];
     [self setup];
 }
 
@@ -60,11 +64,19 @@
     [self addObserver:self forKeyPath:@"iconImgView.image" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
 }
 
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+    CGRect rect = self.iconImgView.frame;
+    rect.origin.x = YHIconMarginX;
+    rect.size.width = self.bounds.size.width - 2 * YHIconMarginX;
+    self.iconImgView.frame = rect;
+}
+
 #pragma mark - KVO的监听方法
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {
     id new = change[NSKeyValueChangeNewKey];
-    
     if (new) {
         [self setIconImageViewPosition];
     }
@@ -78,11 +90,11 @@
 ///设置iconImageView的位置
 - (void)setIconImageViewPosition{
     // Reset,防止循环使用放大
-    self.scrollView.maximumZoomScale = 1;
-    self.scrollView.minimumZoomScale = 1;
+//    self.scrollView.maximumZoomScale = 1;
+//    self.scrollView.minimumZoomScale = 1;
+//    self.scrollView.contentInset = UIEdgeInsetsZero;
+//    self.scrollView.contentOffset = CGPointZero;
     self.scrollView.zoomScale = 1;
-    self.scrollView.contentInset = UIEdgeInsetsZero;
-    self.scrollView.contentOffset = CGPointZero;
     
     //使image占据全部宽度
     UIImage *iconImg = self.iconImgView.image;
@@ -109,7 +121,9 @@
     // 设置伸缩比例
     self.scrollView.maximumZoomScale = 2;
     self.scrollView.minimumZoomScale = 0.5;
+    
 }
+
 
 #pragma mark - 手势处理
 - (void)handleSingleTap:(UITapGestureRecognizer *)tap {
@@ -145,6 +159,7 @@
 
 #pragma mark - UIScrollViewDelegate
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    
     return self.iconImgView;
 }
 
@@ -172,5 +187,6 @@
     // 3.设置边距
     scrollView.contentInset = UIEdgeInsetsMake(offsetY, offsetX, offsetY, offsetX);
 }
+
 
 @end

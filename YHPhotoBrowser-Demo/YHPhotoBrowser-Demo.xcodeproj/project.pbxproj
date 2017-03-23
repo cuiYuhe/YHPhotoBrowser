@@ -17,11 +17,11 @@
 		8E5F4BD91DACD46D003229FB /* YHPhotoBrowser_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F4BD81DACD46D003229FB /* YHPhotoBrowser_DemoTests.m */; };
 		8E5F4BE41DACD46D003229FB /* YHPhotoBrowser_DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F4BE31DACD46D003229FB /* YHPhotoBrowser_DemoUITests.m */; };
 		8E5F4BF31DACD60C003229FB /* HomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F4BF21DACD60C003229FB /* HomeCollectionViewCell.m */; };
-		8E5F4C1F1DACF0F2003229FB /* YHBrowserAnimateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F4C161DACF0F2003229FB /* YHBrowserAnimateDelegate.m */; };
-		8E5F4C201DACF0F2003229FB /* YHPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F4C181DACF0F2003229FB /* YHPhoto.m */; };
-		8E5F4C211DACF0F2003229FB /* YHPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F4C1A1DACF0F2003229FB /* YHPhotoBrowser.m */; };
-		8E5F4C221DACF0F2003229FB /* YHPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F4C1C1DACF0F2003229FB /* YHPhotoBrowserCell.m */; };
-		8E5F4C231DACF0F2003229FB /* YHProgressCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F4C1E1DACF0F2003229FB /* YHProgressCircleView.m */; };
+		8EA393D51E8351D000A4ADD8 /* YHBrowserAnimateDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA393CC1E8351D000A4ADD8 /* YHBrowserAnimateDelegate.m */; };
+		8EA393D61E8351D000A4ADD8 /* YHPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA393CE1E8351D000A4ADD8 /* YHPhoto.m */; };
+		8EA393D71E8351D000A4ADD8 /* YHPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA393D01E8351D000A4ADD8 /* YHPhotoBrowser.m */; };
+		8EA393D81E8351D000A4ADD8 /* YHPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA393D21E8351D000A4ADD8 /* YHPhotoBrowserCell.m */; };
+		8EA393D91E8351D000A4ADD8 /* YHProgressCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EA393D41E8351D000A4ADD8 /* YHProgressCircleView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,16 +62,16 @@
 		8E5F4BE51DACD46D003229FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E5F4BF11DACD60C003229FB /* HomeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewCell.h; sourceTree = "<group>"; };
 		8E5F4BF21DACD60C003229FB /* HomeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewCell.m; sourceTree = "<group>"; };
-		8E5F4C151DACF0F2003229FB /* YHBrowserAnimateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHBrowserAnimateDelegate.h; sourceTree = "<group>"; };
-		8E5F4C161DACF0F2003229FB /* YHBrowserAnimateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHBrowserAnimateDelegate.m; sourceTree = "<group>"; };
-		8E5F4C171DACF0F2003229FB /* YHPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHPhoto.h; sourceTree = "<group>"; };
-		8E5F4C181DACF0F2003229FB /* YHPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHPhoto.m; sourceTree = "<group>"; };
-		8E5F4C191DACF0F2003229FB /* YHPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHPhotoBrowser.h; sourceTree = "<group>"; };
-		8E5F4C1A1DACF0F2003229FB /* YHPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHPhotoBrowser.m; sourceTree = "<group>"; };
-		8E5F4C1B1DACF0F2003229FB /* YHPhotoBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHPhotoBrowserCell.h; sourceTree = "<group>"; };
-		8E5F4C1C1DACF0F2003229FB /* YHPhotoBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHPhotoBrowserCell.m; sourceTree = "<group>"; };
-		8E5F4C1D1DACF0F2003229FB /* YHProgressCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHProgressCircleView.h; sourceTree = "<group>"; };
-		8E5F4C1E1DACF0F2003229FB /* YHProgressCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHProgressCircleView.m; sourceTree = "<group>"; };
+		8EA393CB1E8351D000A4ADD8 /* YHBrowserAnimateDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHBrowserAnimateDelegate.h; sourceTree = "<group>"; };
+		8EA393CC1E8351D000A4ADD8 /* YHBrowserAnimateDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHBrowserAnimateDelegate.m; sourceTree = "<group>"; };
+		8EA393CD1E8351D000A4ADD8 /* YHPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHPhoto.h; sourceTree = "<group>"; };
+		8EA393CE1E8351D000A4ADD8 /* YHPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHPhoto.m; sourceTree = "<group>"; };
+		8EA393CF1E8351D000A4ADD8 /* YHPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHPhotoBrowser.h; sourceTree = "<group>"; };
+		8EA393D01E8351D000A4ADD8 /* YHPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHPhotoBrowser.m; sourceTree = "<group>"; };
+		8EA393D11E8351D000A4ADD8 /* YHPhotoBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHPhotoBrowserCell.h; sourceTree = "<group>"; };
+		8EA393D21E8351D000A4ADD8 /* YHPhotoBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHPhotoBrowserCell.m; sourceTree = "<group>"; };
+		8EA393D31E8351D000A4ADD8 /* YHProgressCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHProgressCircleView.h; sourceTree = "<group>"; };
+		8EA393D41E8351D000A4ADD8 /* YHProgressCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHProgressCircleView.m; sourceTree = "<group>"; };
 		BCD65B5C4DA0272C8C6ED35A /* Pods-YHPhotoBrowser-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YHPhotoBrowser-Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YHPhotoBrowser-Demo/Pods-YHPhotoBrowser-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,7 +132,7 @@
 				8E5F4BC51DACD46D003229FB /* ViewController.m */,
 				8E5F4BC71DACD46D003229FB /* Main.storyboard */,
 				8E5F4BCA1DACD46D003229FB /* Assets.xcassets */,
-				8E5F4C141DACF0F2003229FB /* YHPhotoBrowser */,
+				8EA393CA1E8351D000A4ADD8 /* YHPhotoBrowser */,
 				8E5F4BBE1DACD46D003229FB /* Supporting Files */,
 			);
 			path = "YHPhotoBrowser-Demo";
@@ -168,19 +168,19 @@
 			path = "YHPhotoBrowser-DemoUITests";
 			sourceTree = "<group>";
 		};
-		8E5F4C141DACF0F2003229FB /* YHPhotoBrowser */ = {
+		8EA393CA1E8351D000A4ADD8 /* YHPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				8E5F4C151DACF0F2003229FB /* YHBrowserAnimateDelegate.h */,
-				8E5F4C161DACF0F2003229FB /* YHBrowserAnimateDelegate.m */,
-				8E5F4C171DACF0F2003229FB /* YHPhoto.h */,
-				8E5F4C181DACF0F2003229FB /* YHPhoto.m */,
-				8E5F4C191DACF0F2003229FB /* YHPhotoBrowser.h */,
-				8E5F4C1A1DACF0F2003229FB /* YHPhotoBrowser.m */,
-				8E5F4C1B1DACF0F2003229FB /* YHPhotoBrowserCell.h */,
-				8E5F4C1C1DACF0F2003229FB /* YHPhotoBrowserCell.m */,
-				8E5F4C1D1DACF0F2003229FB /* YHProgressCircleView.h */,
-				8E5F4C1E1DACF0F2003229FB /* YHProgressCircleView.m */,
+				8EA393CB1E8351D000A4ADD8 /* YHBrowserAnimateDelegate.h */,
+				8EA393CC1E8351D000A4ADD8 /* YHBrowserAnimateDelegate.m */,
+				8EA393CD1E8351D000A4ADD8 /* YHPhoto.h */,
+				8EA393CE1E8351D000A4ADD8 /* YHPhoto.m */,
+				8EA393CF1E8351D000A4ADD8 /* YHPhotoBrowser.h */,
+				8EA393D01E8351D000A4ADD8 /* YHPhotoBrowser.m */,
+				8EA393D11E8351D000A4ADD8 /* YHPhotoBrowserCell.h */,
+				8EA393D21E8351D000A4ADD8 /* YHPhotoBrowserCell.m */,
+				8EA393D31E8351D000A4ADD8 /* YHProgressCircleView.h */,
+				8EA393D41E8351D000A4ADD8 /* YHProgressCircleView.m */,
 			);
 			path = YHPhotoBrowser;
 			sourceTree = "<group>";
@@ -383,15 +383,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E5F4C1F1DACF0F2003229FB /* YHBrowserAnimateDelegate.m in Sources */,
+				8EA393D51E8351D000A4ADD8 /* YHBrowserAnimateDelegate.m in Sources */,
 				8E5F4BC61DACD46D003229FB /* ViewController.m in Sources */,
 				8E5F4BC31DACD46D003229FB /* AppDelegate.m in Sources */,
-				8E5F4C231DACF0F2003229FB /* YHProgressCircleView.m in Sources */,
-				8E5F4C211DACF0F2003229FB /* YHPhotoBrowser.m in Sources */,
+				8EA393D91E8351D000A4ADD8 /* YHProgressCircleView.m in Sources */,
+				8EA393D71E8351D000A4ADD8 /* YHPhotoBrowser.m in Sources */,
 				8E5F4BC01DACD46D003229FB /* main.m in Sources */,
 				8E5F4BF31DACD60C003229FB /* HomeCollectionViewCell.m in Sources */,
-				8E5F4C221DACF0F2003229FB /* YHPhotoBrowserCell.m in Sources */,
-				8E5F4C201DACF0F2003229FB /* YHPhoto.m in Sources */,
+				8EA393D81E8351D000A4ADD8 /* YHPhotoBrowserCell.m in Sources */,
+				8EA393D61E8351D000A4ADD8 /* YHPhoto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +532,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "YHPhotoBrowser-Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yuhe.YHPhotoBrowser-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -544,6 +545,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "YHPhotoBrowser-Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yuhe.YHPhotoBrowser-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
