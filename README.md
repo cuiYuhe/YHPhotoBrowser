@@ -6,7 +6,7 @@
 
 ### 1.导入:
 ```
-#import "YHBrowserAnimateDelegate.h"
+#import "YHPhotoBrowser.h"
 ```
 
 ### 2.给图片浏览器对象,传入相关属性:_photos, _currentIndex, _fromImageView,具体如下:
